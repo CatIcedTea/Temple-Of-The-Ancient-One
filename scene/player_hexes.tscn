@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmtdflixoamiv"]
+
+[ext_resource type="Texture2D" uid="uid://clv4hom00qosa" path="res://art/ui/charactersheet.png" id="1_sgc1s"]
+[ext_resource type="Theme" uid="uid://ylucxo13wb6" path="res://theme/characterSheet.tres" id="2_esish"]
+[ext_resource type="Texture2D" uid="uid://d2krwu2v7flpe" path="res://art/ui/button/choicebutton1.png" id="3_yj54e"]
+[ext_resource type="Texture2D" uid="uid://cufi2vfc2pxjv" path="res://art/ui/button/choicebutton3.png" id="4_dx00l"]
+[ext_resource type="Texture2D" uid="uid://r46m4w8ebbkr" path="res://art/ui/button/choicebutton2.png" id="5_w3yf3"]
+[ext_resource type="Script" path="res://script/hexes.cs" id="6_uvg0c"]
+[ext_resource type="Theme" uid="uid://dn2mo1leextlr" path="res://theme/text.tres" id="7_o5riy"]
+[ext_resource type="Texture2D" uid="uid://0xbpbcal4dqy" path="res://art/ui/button/exit1.png" id="8_nxwrf"]
+[ext_resource type="Texture2D" uid="uid://d3v1stfnqxxqg" path="res://art/ui/button/exit3.png" id="9_g2av0"]
+[ext_resource type="Texture2D" uid="uid://dn2okhisufdn3" path="res://art/ui/button/exit2.png" id="10_7p7sx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ah1hp"]
+texture = ExtResource("1_sgc1s")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[node name="PlayerHexes" type="Node2D"]
+
+[node name="PlayerHexesList" type="PanelContainer" parent="."]
+offset_left = 55.0
+offset_top = -95.0
+offset_right = 215.0
+offset_bottom = -1.0
+scale = Vector2(0.7, 0.7)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ah1hp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHexesList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerHexesList/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_esish")
+text = "Hexes 1/1"
+horizontal_alignment = 1
+
+[node name="CauseHarm" type="TextureButton" parent="PlayerHexesList/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_yj54e")
+texture_pressed = ExtResource("4_dx00l")
+texture_hover = ExtResource("5_w3yf3")
+script = ExtResource("6_uvg0c")
+HexName = "Cause Harm"
+Tooltip = "(3 Sanity) Causes excruciating pain to the victim internally. Enemy takes 4 Damage."
+
+[node name="Label" type="Label" parent="PlayerHexesList/VBoxContainer/CauseHarm"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_o5riy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ForeMendWound" type="TextureButton" parent="PlayerHexesList/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_yj54e")
+texture_pressed = ExtResource("4_dx00l")
+texture_hover = ExtResource("5_w3yf3")
+script = ExtResource("6_uvg0c")
+HexName = "Force Mend Wound"
+Tooltip = "(2 Sanity) Forcibly control your own flesh to close up any wounds. Heal yourself for 4 HP."
+
+[node name="Label" type="Label" parent="PlayerHexesList/VBoxContainer/ForeMendWound"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_o5riy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MindWipe" type="TextureButton" parent="PlayerHexesList/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_yj54e")
+texture_pressed = ExtResource("4_dx00l")
+texture_hover = ExtResource("5_w3yf3")
+script = ExtResource("6_uvg0c")
+HexName = "Mind Wipe"
+Tooltip = "(3 Sanity) Degenerate your mind to a state before you casted a hex, restoring one additional available hex and also one additional free action during combat to cast another hex."
+
+[node name="Label" type="Label" parent="PlayerHexesList/VBoxContainer/MindWipe"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_o5riy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HexesClose" type="TextureButton" parent="."]
+offset_left = 157.0
+offset_top = -98.0
+offset_right = 173.0
+offset_bottom = -82.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("8_nxwrf")
+texture_pressed = ExtResource("9_g2av0")
+texture_hover = ExtResource("10_7p7sx")
+
+[connection signal="mouse_entered" from="PlayerHexesList/VBoxContainer/CauseHarm" to="PlayerHexesList/VBoxContainer/CauseHarm" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerHexesList/VBoxContainer/CauseHarm" to="PlayerHexesList/VBoxContainer/CauseHarm" method="_on_mouse_exited"]
+[connection signal="pressed" from="PlayerHexesList/VBoxContainer/CauseHarm" to="PlayerHexesList/VBoxContainer/CauseHarm" method="_on_pressed"]
+[connection signal="mouse_entered" from="PlayerHexesList/VBoxContainer/ForeMendWound" to="PlayerHexesList/VBoxContainer/ForeMendWound" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerHexesList/VBoxContainer/ForeMendWound" to="PlayerHexesList/VBoxContainer/ForeMendWound" method="_on_mouse_exited"]
+[connection signal="pressed" from="PlayerHexesList/VBoxContainer/ForeMendWound" to="PlayerHexesList/VBoxContainer/ForeMendWound" method="_on_pressed"]
+[connection signal="mouse_entered" from="PlayerHexesList/VBoxContainer/MindWipe" to="PlayerHexesList/VBoxContainer/MindWipe" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerHexesList/VBoxContainer/MindWipe" to="PlayerHexesList/VBoxContainer/MindWipe" method="_on_mouse_exited"]
+[connection signal="pressed" from="PlayerHexesList/VBoxContainer/MindWipe" to="PlayerHexesList/VBoxContainer/MindWipe" method="_on_pressed"]

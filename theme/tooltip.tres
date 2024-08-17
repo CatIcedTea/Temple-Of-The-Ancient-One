@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bb74n0a78ghii"]
+
+[ext_resource type="FontFile" uid="uid://bvkts1a67fimo" path="res://font/nihonium113.regular.ttf" id="1_bsju4"]
+[ext_resource type="Texture2D" uid="uid://cmft3j24e3obw" path="res://art/ui/tooltip.png" id="2_7my8x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmrx3"]
+texture = ExtResource("2_7my8x")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[resource]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = -4
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_bsju4")
+Label/styles/normal = SubResource("StyleBoxTexture_cmrx3")

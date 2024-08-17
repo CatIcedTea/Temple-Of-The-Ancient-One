@@ -1,0 +1,316 @@
+[gd_scene load_steps=18 format=3 uid="uid://djqtfkj01unb4"]
+
+[ext_resource type="Texture2D" uid="uid://clv4hom00qosa" path="res://art/ui/charactersheet.png" id="1_acqgl"]
+[ext_resource type="Script" path="res://script/character_sheet.cs" id="2_7mpow"]
+[ext_resource type="Theme" uid="uid://ylucxo13wb6" path="res://theme/characterSheet.tres" id="2_tmd8f"]
+[ext_resource type="Texture2D" uid="uid://b2ng5lsbhshyp" path="res://art/ui/button/minus1.png" id="3_g52sw"]
+[ext_resource type="Texture2D" uid="uid://c6jr021bx3kv0" path="res://art/ui/button/minus3.png" id="4_ergj7"]
+[ext_resource type="Texture2D" uid="uid://3tk1we81562t" path="res://art/ui/button/confirm1.png" id="4_rsbk3"]
+[ext_resource type="Texture2D" uid="uid://d3eruwlqyvif5" path="res://art/ui/button/confirm3.png" id="5_0xigt"]
+[ext_resource type="Texture2D" uid="uid://vytiwawa3md" path="res://art/ui/button/minus2.png" id="5_pi4oc"]
+[ext_resource type="Texture2D" uid="uid://c7ycrenslt68e" path="res://art/ui/button/confirm2.png" id="6_graut"]
+[ext_resource type="Texture2D" uid="uid://4qjam7lgskio" path="res://art/ui/button/plus1.png" id="6_q5u7s"]
+[ext_resource type="Texture2D" uid="uid://3kya77fccxi5" path="res://art/ui/button/plus3.png" id="7_uyf0u"]
+[ext_resource type="Texture2D" uid="uid://q0xtfpiu035p" path="res://art/ui/button/plus2.png" id="8_vsy4d"]
+[ext_resource type="Texture2D" uid="uid://0xbpbcal4dqy" path="res://art/ui/button/exit1.png" id="9_gdih3"]
+[ext_resource type="Texture2D" uid="uid://d3v1stfnqxxqg" path="res://art/ui/button/exit3.png" id="10_hfu7s"]
+[ext_resource type="Theme" uid="uid://bb74n0a78ghii" path="res://theme/tooltip.tres" id="10_na38q"]
+[ext_resource type="Texture2D" uid="uid://dn2okhisufdn3" path="res://art/ui/button/exit2.png" id="11_ijod4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np25j"]
+texture = ExtResource("1_acqgl")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[node name="CharacterSheet" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -76.0
+offset_right = 141.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_np25j")
+script = ExtResource("2_7mpow")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -247.0
+offset_top = -148.0
+offset_right = 532.0
+offset_bottom = 335.0
+color = Color(0, 0, 0, 0.552941)
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = 233.0
+offset_bottom = 146.0
+theme = ExtResource("2_tmd8f")
+
+[node name="PrimaryStatName" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="Strength" type="Label" parent="BoxContainer/PrimaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"TooltipLabel"
+text = "STRENGTH:"
+
+[node name="Consitution" type="Label" parent="BoxContainer/PrimaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "CONSTITUTION:"
+
+[node name="Dexterity" type="Label" parent="BoxContainer/PrimaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "DEXTERITY:"
+
+[node name="Intelligence" type="Label" parent="BoxContainer/PrimaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "INTELLIGENCE:"
+
+[node name="Mind" type="Label" parent="BoxContainer/PrimaryStatName"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+mouse_filter = 1
+text = "MIND: "
+
+[node name="Skillpoints" type="Label" parent="BoxContainer/PrimaryStatName"]
+layout_mode = 2
+text = "Skill Points: "
+
+[node name="Confirm" type="TextureButton" parent="BoxContainer/PrimaryStatName"]
+layout_mode = 2
+texture_normal = ExtResource("4_rsbk3")
+texture_pressed = ExtResource("5_0xigt")
+texture_hover = ExtResource("6_graut")
+
+[node name="Minus" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="STR" type="TextureButton" parent="BoxContainer/Minus"]
+layout_mode = 2
+texture_normal = ExtResource("3_g52sw")
+texture_pressed = ExtResource("4_ergj7")
+texture_hover = ExtResource("5_pi4oc")
+
+[node name="CON" type="TextureButton" parent="BoxContainer/Minus"]
+layout_mode = 2
+texture_normal = ExtResource("3_g52sw")
+texture_pressed = ExtResource("4_ergj7")
+texture_hover = ExtResource("5_pi4oc")
+
+[node name="DEX" type="TextureButton" parent="BoxContainer/Minus"]
+layout_mode = 2
+texture_normal = ExtResource("3_g52sw")
+texture_pressed = ExtResource("4_ergj7")
+texture_hover = ExtResource("5_pi4oc")
+
+[node name="INT" type="TextureButton" parent="BoxContainer/Minus"]
+layout_mode = 2
+texture_normal = ExtResource("3_g52sw")
+texture_pressed = ExtResource("4_ergj7")
+texture_hover = ExtResource("5_pi4oc")
+
+[node name="MND" type="TextureButton" parent="BoxContainer/Minus"]
+layout_mode = 2
+texture_normal = ExtResource("3_g52sw")
+texture_pressed = ExtResource("4_ergj7")
+texture_hover = ExtResource("5_pi4oc")
+
+[node name="PrimaryStat" type="VBoxContainer" parent="BoxContainer"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="STR" type="Label" parent="BoxContainer/PrimaryStat"]
+layout_mode = 2
+text = "5"
+
+[node name="CON" type="Label" parent="BoxContainer/PrimaryStat"]
+layout_mode = 2
+text = "5"
+
+[node name="DEX" type="Label" parent="BoxContainer/PrimaryStat"]
+layout_mode = 2
+text = "5"
+
+[node name="INT" type="Label" parent="BoxContainer/PrimaryStat"]
+layout_mode = 2
+text = "5"
+
+[node name="MND" type="Label" parent="BoxContainer/PrimaryStat"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+text = "5"
+
+[node name="SP" type="Label" parent="BoxContainer/PrimaryStat"]
+layout_mode = 2
+
+[node name="Plus" type="VBoxContainer" parent="BoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="STR" type="TextureButton" parent="BoxContainer/Plus"]
+layout_mode = 2
+texture_normal = ExtResource("6_q5u7s")
+texture_pressed = ExtResource("7_uyf0u")
+texture_hover = ExtResource("8_vsy4d")
+
+[node name="CON" type="TextureButton" parent="BoxContainer/Plus"]
+layout_mode = 2
+texture_normal = ExtResource("6_q5u7s")
+texture_pressed = ExtResource("7_uyf0u")
+texture_hover = ExtResource("8_vsy4d")
+
+[node name="DEX" type="TextureButton" parent="BoxContainer/Plus"]
+layout_mode = 2
+texture_normal = ExtResource("6_q5u7s")
+texture_pressed = ExtResource("7_uyf0u")
+texture_hover = ExtResource("8_vsy4d")
+
+[node name="INT" type="TextureButton" parent="BoxContainer/Plus"]
+layout_mode = 2
+texture_normal = ExtResource("6_q5u7s")
+texture_pressed = ExtResource("7_uyf0u")
+texture_hover = ExtResource("8_vsy4d")
+
+[node name="MND" type="TextureButton" parent="BoxContainer/Plus"]
+layout_mode = 2
+texture_normal = ExtResource("6_q5u7s")
+texture_pressed = ExtResource("7_uyf0u")
+texture_hover = ExtResource("8_vsy4d")
+
+[node name="SecondaryStatName" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="HP" type="Label" parent="BoxContainer/SecondaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "HP: "
+
+[node name="SANITY" type="Label" parent="BoxContainer/SecondaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "SANITY:"
+
+[node name="TH" type="Label" parent="BoxContainer/SecondaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "TO HIT:"
+
+[node name="AC" type="Label" parent="BoxContainer/SecondaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "AC"
+
+[node name="DR" type="Label" parent="BoxContainer/SecondaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "DR:"
+
+[node name="BA" type="Label" parent="BoxContainer/SecondaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "BA:"
+
+[node name="MEM" type="Label" parent="BoxContainer/SecondaryStatName"]
+layout_mode = 2
+mouse_filter = 1
+text = "MEM: "
+
+[node name="HEX" type="Label" parent="BoxContainer/SecondaryStatName"]
+visible = false
+layout_mode = 2
+mouse_filter = 1
+text = "HEX SAVE:"
+
+[node name="SecondaryStat" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="HP" type="Label" parent="BoxContainer/SecondaryStat"]
+layout_mode = 2
+
+[node name="SANITY" type="Label" parent="BoxContainer/SecondaryStat"]
+layout_mode = 2
+
+[node name="TH" type="Label" parent="BoxContainer/SecondaryStat"]
+layout_mode = 2
+
+[node name="AC" type="Label" parent="BoxContainer/SecondaryStat"]
+layout_mode = 2
+
+[node name="DR" type="Label" parent="BoxContainer/SecondaryStat"]
+layout_mode = 2
+
+[node name="BA" type="Label" parent="BoxContainer/SecondaryStat"]
+layout_mode = 2
+
+[node name="MEM" type="Label" parent="BoxContainer/SecondaryStat"]
+layout_mode = 2
+
+[node name="HEX" type="Label" parent="BoxContainer/SecondaryStat"]
+visible = false
+layout_mode = 2
+
+[node name="Close" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 8.0
+offset_right = 298.0
+offset_bottom = 48.0
+texture_normal = ExtResource("9_gdih3")
+texture_pressed = ExtResource("10_hfu7s")
+texture_hover = ExtResource("11_ijod4")
+
+[node name="Tooltip" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 143.0
+offset_bottom = 58.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("10_na38q")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="BoxContainer/PrimaryStatName/Strength" to="." method="_on_strength_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/PrimaryStatName/Strength" to="." method="_on_strength_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/PrimaryStatName/Consitution" to="." method="_on_consitution_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/PrimaryStatName/Consitution" to="." method="_on_consitution_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/PrimaryStatName/Dexterity" to="." method="_on_dexterity_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/PrimaryStatName/Dexterity" to="." method="_on_dexterity_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/PrimaryStatName/Intelligence" to="." method="_on_intelligence_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/PrimaryStatName/Intelligence" to="." method="_on_intelligence_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/PrimaryStatName/Mind" to="." method="_on_mind_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/PrimaryStatName/Mind" to="." method="_on_mind_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/SecondaryStatName/HP" to="." method="_on_hp_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/SecondaryStatName/HP" to="." method="_on_hp_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/SecondaryStatName/SANITY" to="." method="_on_sanity_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/SecondaryStatName/SANITY" to="." method="_on_sanity_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/SecondaryStatName/TH" to="." method="_on_th_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/SecondaryStatName/TH" to="." method="_on_th_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/SecondaryStatName/AC" to="." method="_on_ac_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/SecondaryStatName/AC" to="." method="_on_ac_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/SecondaryStatName/DR" to="." method="_on_dr_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/SecondaryStatName/DR" to="." method="_on_dr_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/SecondaryStatName/BA" to="." method="_on_ba_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/SecondaryStatName/BA" to="." method="_on_ba_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/SecondaryStatName/MEM" to="." method="_on_mem_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/SecondaryStatName/MEM" to="." method="_on_mem_mouse_exited"]
+[connection signal="mouse_entered" from="BoxContainer/SecondaryStatName/HEX" to="." method="_on_hex_mouse_entered"]
+[connection signal="mouse_exited" from="BoxContainer/SecondaryStatName/HEX" to="." method="_on_hex_mouse_exited"]

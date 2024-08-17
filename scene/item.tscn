@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctpdxou4yi67b"]
+
+[ext_resource type="Theme" uid="uid://dn2mo1leextlr" path="res://theme/text.tres" id="1_dfb1g"]
+[ext_resource type="Texture2D" uid="uid://d2krwu2v7flpe" path="res://art/ui/button/choicebutton1.png" id="2_bmaqn"]
+[ext_resource type="Texture2D" uid="uid://cufi2vfc2pxjv" path="res://art/ui/button/choicebutton3.png" id="3_jkfv3"]
+[ext_resource type="Texture2D" uid="uid://r46m4w8ebbkr" path="res://art/ui/button/choicebutton2.png" id="4_q47ea"]
+[ext_resource type="Script" path="res://script/items.cs" id="5_qbn04"]
+[ext_resource type="Texture2D" uid="uid://ddhs77pwhasmg" path="res://art/ui/combatpanel.png" id="6_sdn37"]
+[ext_resource type="Texture2D" uid="uid://0xbpbcal4dqy" path="res://art/ui/button/exit1.png" id="7_8lkuw"]
+[ext_resource type="Texture2D" uid="uid://d3v1stfnqxxqg" path="res://art/ui/button/exit3.png" id="8_qknhc"]
+[ext_resource type="Texture2D" uid="uid://dn2okhisufdn3" path="res://art/ui/button/exit2.png" id="9_vy7nq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4dsln"]
+texture = ExtResource("6_sdn37")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="Item" type="TextureButton"]
+theme = ExtResource("1_dfb1g")
+texture_normal = ExtResource("2_bmaqn")
+texture_pressed = ExtResource("3_jkfv3")
+texture_hover = ExtResource("4_q47ea")
+script = ExtResource("5_qbn04")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EquipMenu" type="Node2D" parent="."]
+visible = false
+top_level = true
+position = Vector2(9, 6)
+scale = Vector2(0.7, 0.7)
+
+[node name="ColorRect" type="ColorRect" parent="EquipMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.5
+offset_top = -241.5
+offset_right = 389.5
+offset_bottom = 241.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0, 0, 0.411765)
+
+[node name="EquipPanel" type="PanelContainer" parent="EquipMenu"]
+offset_left = -237.0
+offset_top = -89.0
+offset_right = 211.0
+offset_bottom = -1.0
+theme = ExtResource("1_dfb1g")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4dsln")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EquipMenu/EquipPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipMenu/EquipPanel/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/EquipPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Equip" type="TextureButton" parent="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_bmaqn")
+texture_pressed = ExtResource("3_jkfv3")
+texture_hover = ExtResource("4_q47ea")
+
+[node name="Label" type="Label" parent="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer/Equip"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Equip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="unequip" type="TextureButton" parent="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_bmaqn")
+texture_pressed = ExtResource("3_jkfv3")
+texture_hover = ExtResource("4_q47ea")
+
+[node name="Label" type="Label" parent="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer/unequip"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Unequip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Discard" type="TextureButton" parent="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_bmaqn")
+texture_pressed = ExtResource("3_jkfv3")
+texture_hover = ExtResource("4_q47ea")
+
+[node name="Label" type="Label" parent="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer/Discard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Discard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseEquip" type="TextureButton" parent="EquipMenu"]
+offset_left = 189.0
+offset_top = -77.0
+offset_right = 205.0
+offset_bottom = -61.0
+texture_normal = ExtResource("7_8lkuw")
+texture_pressed = ExtResource("8_qknhc")
+texture_hover = ExtResource("9_vy7nq")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer/Equip" to="." method="_on_equip_pressed"]
+[connection signal="pressed" from="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer/unequip" to="." method="_on_unequip_pressed"]
+[connection signal="pressed" from="EquipMenu/EquipPanel/VBoxContainer/HBoxContainer/Discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="EquipMenu/CloseEquip" to="." method="_on_close_equip_pressed"]

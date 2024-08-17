@@ -1,0 +1,206 @@
+[gd_scene load_steps=45 format=3 uid="uid://2op7vwb76y70"]
+
+[ext_resource type="Script" path="res://script/player.cs" id="1_475eu"]
+[ext_resource type="PackedScene" uid="uid://djqtfkj01unb4" path="res://scene/character_sheet.tscn" id="2_a7lyl"]
+[ext_resource type="Texture2D" uid="uid://bqbxnvjsrykfi" path="res://art/ui/progressbar/hpbarunder.png" id="2_r8un6"]
+[ext_resource type="PackedScene" uid="uid://nmc4uw481tps" path="res://scene/skillcheck.tscn" id="3_qa4gh"]
+[ext_resource type="Texture2D" uid="uid://c3e6dkm38ival" path="res://art/ui/progressbar/hpbarover.png" id="5_ro10l"]
+[ext_resource type="Texture2D" uid="uid://ddn3qys3muwkj" path="res://art/ui/progressbar/hpbarprogress1.png" id="6_oy8k2"]
+[ext_resource type="Texture2D" uid="uid://coak7k0syww2p" path="res://art/ui/progressbar/hpbarprogress2.png" id="7_rw0w8"]
+[ext_resource type="Texture2D" uid="uid://ssgyfq1evehf" path="res://art/ui/progressbar/hpbarprogress11.png" id="8_30uae"]
+[ext_resource type="Texture2D" uid="uid://2taqs5cgx8il" path="res://art/ui/progressbar/hpbarprogress12.png" id="9_rx2tk"]
+[ext_resource type="Texture2D" uid="uid://bcykfuu54j76r" path="res://art/ui/progressbar/hpbarprogress13.png" id="10_iw217"]
+[ext_resource type="Texture2D" uid="uid://ku6oqlmgwtrr" path="res://art/ui/progressbar/hpbarprogress14.png" id="11_02w4x"]
+[ext_resource type="Texture2D" uid="uid://7vv0ematsgec" path="res://art/ui/progressbar/hpbarprogress15.png" id="12_qn4hw"]
+[ext_resource type="Texture2D" uid="uid://clxv2nbus1wnj" path="res://art/ui/progressbar/hpbarprogress16.png" id="13_lyr7g"]
+[ext_resource type="Texture2D" uid="uid://dir0sv62figsc" path="res://art/ui/progressbar/hpbarprogress3.png" id="14_6jcmj"]
+[ext_resource type="Texture2D" uid="uid://bem3s5tr2fntb" path="res://art/ui/progressbar/hpbarprogress4.png" id="15_t6qho"]
+[ext_resource type="Texture2D" uid="uid://mqh67xj20tm2" path="res://art/ui/progressbar/hpbarprogress5.png" id="16_f8u70"]
+[ext_resource type="Texture2D" uid="uid://l6hsqsb4ii6q" path="res://art/ui/progressbar/hpbarprogress6.png" id="17_xgjsm"]
+[ext_resource type="Texture2D" uid="uid://w5ypjrw2pd4x" path="res://art/ui/progressbar/hpbarprogress7.png" id="18_na3yh"]
+[ext_resource type="Texture2D" uid="uid://xt10krf7ar27" path="res://art/ui/progressbar/hpbarprogress8.png" id="19_8o6wv"]
+[ext_resource type="Texture2D" uid="uid://ft4ki7g6af0t" path="res://art/ui/progressbar/hpbarprogress9.png" id="20_2teeq"]
+[ext_resource type="Texture2D" uid="uid://ca2g1l61s4voy" path="res://art/ui/progressbar/sanityunder.png" id="20_7edk8"]
+[ext_resource type="Theme" uid="uid://dn2mo1leextlr" path="res://theme/text.tres" id="20_ru36t"]
+[ext_resource type="Texture2D" uid="uid://da6wi86uimtgn" path="res://art/ui/progressbar/sanityover.png" id="21_soyut"]
+[ext_resource type="Texture2D" uid="uid://b84s8tpqd7b5i" path="res://art/ui/progressbar/hpbarprogress10.png" id="21_t8blq"]
+[ext_resource type="Texture2D" uid="uid://dih7u20r286vy" path="res://art/ui/progressbar/sanityprogress1.png" id="22_bqah1"]
+[ext_resource type="Texture2D" uid="uid://86qvggw0pah4" path="res://art/ui/progressbar/sanityprogress2.png" id="23_cq14y"]
+[ext_resource type="Texture2D" uid="uid://lkxtn23ag4vj" path="res://art/ui/progressbar/sanityprogress11.png" id="24_pmelg"]
+[ext_resource type="Texture2D" uid="uid://580btcbttfp" path="res://art/ui/progressbar/sanityprogress12.png" id="25_6f6nh"]
+[ext_resource type="Texture2D" uid="uid://bshe371kfw3u0" path="res://art/ui/progressbar/sanityprogress13.png" id="26_pglk4"]
+[ext_resource type="Texture2D" uid="uid://d0cbymolllian" path="res://art/ui/progressbar/sanityprogress14.png" id="27_27w5y"]
+[ext_resource type="Texture2D" uid="uid://j8ibxs5kwnmh" path="res://art/ui/progressbar/sanityprogress15.png" id="28_x8mft"]
+[ext_resource type="Texture2D" uid="uid://bjp7qxwcb1eha" path="res://art/ui/progressbar/sanityprogress16.png" id="29_66vus"]
+[ext_resource type="Texture2D" uid="uid://c5ljhhjaktmyc" path="res://art/ui/progressbar/sanityprogress3.png" id="30_eckdu"]
+[ext_resource type="Texture2D" uid="uid://dwqtv0tccvm0q" path="res://art/ui/progressbar/sanityprogress4.png" id="31_1aomq"]
+[ext_resource type="Texture2D" uid="uid://db8v4gqox3say" path="res://art/ui/progressbar/sanityprogress5.png" id="32_5mw5f"]
+[ext_resource type="Texture2D" uid="uid://c1glnh2wv8etn" path="res://art/ui/progressbar/sanityprogress6.png" id="33_bttns"]
+[ext_resource type="Texture2D" uid="uid://c3a0538jx5428" path="res://art/ui/progressbar/sanityprogress7.png" id="34_jlo6q"]
+[ext_resource type="Texture2D" uid="uid://dm3lth76lunac" path="res://art/ui/progressbar/sanityprogress8.png" id="35_qeuor"]
+[ext_resource type="Texture2D" uid="uid://cmfjckkk6kl8s" path="res://art/ui/progressbar/sanityprogress9.png" id="36_lthvd"]
+[ext_resource type="Texture2D" uid="uid://buetqvbli3vgx" path="res://art/ui/progressbar/sanityprogress10.png" id="37_wcdyv"]
+[ext_resource type="Script" path="res://script/inventoryLimit.cs" id="40_ypl0x"]
+[ext_resource type="PackedScene" uid="uid://kxhvg4y6r4m0" path="res://scene/inventory.tscn" id="41_p6xeu"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_aochu"]
+frames = 16
+speed_scale = 8.0
+frame_0/texture = ExtResource("6_oy8k2")
+frame_1/texture = ExtResource("7_rw0w8")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("14_6jcmj")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("15_t6qho")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("16_f8u70")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("17_xgjsm")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("18_na3yh")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("19_8o6wv")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("20_2teeq")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("21_t8blq")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("8_30uae")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("9_rx2tk")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("10_iw217")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("11_02w4x")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("12_qn4hw")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("13_lyr7g")
+frame_15/duration = 7.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ucv4m"]
+frames = 16
+speed_scale = 8.0
+frame_0/texture = ExtResource("22_bqah1")
+frame_0/duration = 4.0
+frame_1/texture = ExtResource("23_cq14y")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("30_eckdu")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("31_1aomq")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("32_5mw5f")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("33_bttns")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("34_jlo6q")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("35_qeuor")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("36_lthvd")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("37_wcdyv")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("24_pmelg")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("25_6f6nh")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("26_pglk4")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("27_27w5y")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("28_x8mft")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("29_66vus")
+frame_15/duration = 3.0
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_475eu")
+
+[node name="HpBar" type="TextureProgressBar" parent="."]
+offset_left = -172.0
+offset_top = 41.0
+offset_right = -108.0
+offset_bottom = 105.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("2_r8un6")
+texture_over = ExtResource("5_ro10l")
+texture_progress = SubResource("AnimatedTexture_aochu")
+
+[node name="HP" type="Label" parent="HpBar"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 28.0
+offset_right = 45.0
+offset_bottom = 51.0
+theme = ExtResource("20_ru36t")
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SanityBar" type="TextureProgressBar" parent="."]
+offset_left = 108.0
+offset_top = 41.0
+offset_right = 172.0
+offset_bottom = 105.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("20_7edk8")
+texture_over = ExtResource("21_soyut")
+texture_progress = SubResource("AnimatedTexture_ucv4m")
+
+[node name="Sanity" type="Label" parent="SanityBar"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 28.0
+offset_right = 59.0
+offset_bottom = 51.0
+theme = ExtResource("20_ru36t")
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Curse" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Inventory" parent="." instance=ExtResource("41_p6xeu")]
+visible = false
+position = Vector2(54, -81)
+script = ExtResource("40_ypl0x")
+
+[node name="Skillcheck" parent="." instance=ExtResource("3_qa4gh")]
+visible = false
+
+[node name="Choice" parent="Skillcheck" index="2"]
+offset_left = 34.0
+offset_right = 310.0
+
+[node name="CharacterSheet" parent="." instance=ExtResource("2_a7lyl")]
+
+[node name="Xp" type="Label" parent="."]
+offset_left = 176.0
+offset_top = -98.0
+offset_right = 216.0
+offset_bottom = -75.0
+theme = ExtResource("20_ru36t")
+text = "EXP: 30"
+
+[connection signal="pressed" from="Inventory/InventoryClose" to="." method="_on_inventory_close_pressed"]
+[connection signal="button_up" from="CharacterSheet/BoxContainer/PrimaryStatName/Confirm" to="." method="_on_confirm_button_up"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Minus/STR" to="." method="_on_str_minus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Minus/CON" to="." method="_on_con_minus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Minus/DEX" to="." method="_on_dex_minus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Minus/INT" to="." method="_on_int_minus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Minus/MND" to="." method="_on_mnd_minus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Plus/STR" to="." method="_on_str_plus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Plus/CON" to="." method="_on_con_plus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Plus/DEX" to="." method="_on_dex_plus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Plus/INT" to="." method="_on_int_plus_pressed"]
+[connection signal="pressed" from="CharacterSheet/BoxContainer/Plus/MND" to="." method="_on_mnd_plus_pressed"]
+[connection signal="button_up" from="CharacterSheet/Close" to="." method="_on_close_button_up"]
+
+[editable path="Inventory"]
+[editable path="Skillcheck"]
+[editable path="CharacterSheet"]

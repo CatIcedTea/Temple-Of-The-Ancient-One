@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://kxhvg4y6r4m0"]
+
+[ext_resource type="Theme" uid="uid://ylucxo13wb6" path="res://theme/characterSheet.tres" id="1_apqkh"]
+[ext_resource type="Texture2D" uid="uid://clv4hom00qosa" path="res://art/ui/charactersheet.png" id="2_rhqw3"]
+[ext_resource type="Texture2D" uid="uid://0xbpbcal4dqy" path="res://art/ui/button/exit1.png" id="4_0cexh"]
+[ext_resource type="Texture2D" uid="uid://d3v1stfnqxxqg" path="res://art/ui/button/exit3.png" id="5_okdk6"]
+[ext_resource type="Texture2D" uid="uid://dn2okhisufdn3" path="res://art/ui/button/exit2.png" id="6_2h11b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pou5d"]
+texture = ExtResource("2_rhqw3")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[node name="Inventory" type="Node2D"]
+position = Vector2(56, -84)
+scale = Vector2(0.7, 0.7)
+
+[node name="InventoryList" type="PanelContainer" parent="."]
+offset_right = 160.0
+offset_bottom = 51.0
+theme = ExtResource("1_apqkh")
+theme_override_styles/panel = SubResource("StyleBoxTexture_pou5d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InventoryList/VBoxContainer"]
+layout_mode = 2
+text = "Inventory"
+horizontal_alignment = 1
+
+[node name="InventoryClose" type="TextureButton" parent="."]
+offset_left = 147.143
+offset_top = -2.85714
+offset_right = 163.143
+offset_bottom = 13.1429
+texture_normal = ExtResource("4_0cexh")
+texture_pressed = ExtResource("5_okdk6")
+texture_hover = ExtResource("6_2h11b")

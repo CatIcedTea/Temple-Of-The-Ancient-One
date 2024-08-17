@@ -1,0 +1,251 @@
+[gd_scene load_steps=13 format=3 uid="uid://crye1coe7wqnm"]
+
+[ext_resource type="Texture2D" uid="uid://b2f1ty48j3e2n" path="res://art/background/mainmenu.png" id="1_eyyk3"]
+[ext_resource type="Script" path="res://script/main_menu.cs" id="1_rxu1a"]
+[ext_resource type="Theme" uid="uid://dn2mo1leextlr" path="res://theme/text.tres" id="2_5orgc"]
+[ext_resource type="Texture2D" uid="uid://ddhs77pwhasmg" path="res://art/ui/combatpanel.png" id="3_rslit"]
+[ext_resource type="Texture2D" uid="uid://d2krwu2v7flpe" path="res://art/ui/button/choicebutton1.png" id="4_o88wj"]
+[ext_resource type="Texture2D" uid="uid://cufi2vfc2pxjv" path="res://art/ui/button/choicebutton3.png" id="5_1j1qq"]
+[ext_resource type="Texture2D" uid="uid://r46m4w8ebbkr" path="res://art/ui/button/choicebutton2.png" id="6_hhllk"]
+[ext_resource type="Theme" uid="uid://d3qsk5iqwkgmd" path="res://theme/slider.tres" id="8_0wkmk"]
+[ext_resource type="Script" path="res://script/volumeSlider.cs" id="9_lsom7"]
+[ext_resource type="AudioStream" uid="uid://b8v6k6bsw7h0q" path="res://sound/sfx/click_button_hard_.mp3" id="10_bp1tc"]
+[ext_resource type="AudioStream" uid="uid://brpp3jqmrmapu" path="res://sound/sfx/hover_over_button_sound.mp3" id="11_w0wmb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4uipp"]
+texture = ExtResource("3_rslit")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_rxu1a")
+
+[node name="BlackBackground" type="ColorRect" parent="."]
+offset_left = -637.0
+offset_top = -382.0
+offset_right = -599.0
+offset_bottom = -345.0
+scale = Vector2(33.7052, 20.5014)
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.5, 3.5)
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(0, -45)
+texture = ExtResource("1_eyyk3")
+
+[node name="Main" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5orgc")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4uipp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="Play" type="TextureButton" parent="Main/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_o88wj")
+texture_pressed = ExtResource("5_1j1qq")
+texture_hover = ExtResource("6_hhllk")
+
+[node name="Label" type="Label" parent="Main/VBoxContainer/Play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Setting" type="TextureButton" parent="Main/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_o88wj")
+texture_pressed = ExtResource("5_1j1qq")
+texture_hover = ExtResource("6_hhllk")
+
+[node name="Label" type="Label" parent="Main/VBoxContainer/Setting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Setting
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Main/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_o88wj")
+texture_pressed = ExtResource("5_1j1qq")
+texture_hover = ExtResource("6_hhllk")
+
+[node name="Label" type="Label" parent="Main/VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundPanel" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5orgc")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4uipp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SoundPanel"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume:"
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_0wkmk")
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_lsom7")
+sliderName = "Master"
+
+[node name="Music" type="Label" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+text = "Music:"
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_0wkmk")
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_lsom7")
+sliderName = "Music"
+
+[node name="SFX" type="Label" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+text = "Sound Effects:"
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_0wkmk")
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_lsom7")
+sliderName = "SFX"
+
+[node name="Back" type="TextureButton" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_o88wj")
+texture_pressed = ExtResource("5_1j1qq")
+texture_hover = ExtResource("6_hhllk")
+
+[node name="Label" type="Label" parent="SoundPanel/VBoxContainer/Back"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound" type="Node2D" parent="."]
+
+[node name="click_hard" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("10_bp1tc")
+bus = &"SFX"
+
+[node name="hover_over" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("11_w0wmb")
+volume_db = -2.0
+bus = &"SFX"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -270.0
+offset_top = 93.0
+offset_right = -103.0
+offset_bottom = 149.0
+theme = ExtResource("2_5orgc")
+text = "Programming, Art, and Design:
+CatIcedTea
+Sound Design and Music:
+toffemilky"
+
+[node name="Filter" type="ColorRect" parent="."]
+top_level = true
+visibility_layer = 4
+offset_left = -549.0
+offset_top = -304.0
+offset_right = 550.0
+offset_bottom = 303.0
+mouse_filter = 2
+color = Color(0.913725, 0.847059, 0.945098, 0.0980392)
+
+[connection signal="mouse_entered" from="Main/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Main/VBoxContainer/Setting" to="." method="_on_setting_mouse_entered"]
+[connection signal="pressed" from="Main/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="mouse_entered" from="Main/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Main/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="SoundPanel/VBoxContainer/MasterSlider" to="SoundPanel/VBoxContainer/MasterSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="SoundPanel/VBoxContainer/MusicSlider" to="SoundPanel/VBoxContainer/MusicSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="SoundPanel/VBoxContainer/SFXSlider" to="SoundPanel/VBoxContainer/SFXSlider" method="_on_value_changed"]
+[connection signal="mouse_entered" from="SoundPanel/VBoxContainer/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="SoundPanel/VBoxContainer/Back" to="." method="_on_back_pressed"]

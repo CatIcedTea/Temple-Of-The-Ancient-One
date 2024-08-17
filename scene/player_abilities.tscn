@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://o7l0fyts7fcm"]
+
+[ext_resource type="Texture2D" uid="uid://clv4hom00qosa" path="res://art/ui/charactersheet.png" id="1_k0yt7"]
+[ext_resource type="Theme" uid="uid://dn2mo1leextlr" path="res://theme/text.tres" id="2_lf7hm"]
+[ext_resource type="Texture2D" uid="uid://d2krwu2v7flpe" path="res://art/ui/button/choicebutton1.png" id="3_3amex"]
+[ext_resource type="Texture2D" uid="uid://cufi2vfc2pxjv" path="res://art/ui/button/choicebutton3.png" id="4_umw8e"]
+[ext_resource type="Texture2D" uid="uid://r46m4w8ebbkr" path="res://art/ui/button/choicebutton2.png" id="5_3420t"]
+[ext_resource type="Script" path="res://script/abilities.cs" id="6_rdoox"]
+[ext_resource type="Texture2D" uid="uid://0xbpbcal4dqy" path="res://art/ui/button/exit1.png" id="7_8qc6m"]
+[ext_resource type="Texture2D" uid="uid://d3v1stfnqxxqg" path="res://art/ui/button/exit3.png" id="8_b1pnu"]
+[ext_resource type="Texture2D" uid="uid://dn2okhisufdn3" path="res://art/ui/button/exit2.png" id="9_gkmo7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gaqho"]
+texture = ExtResource("1_k0yt7")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[node name="PlayerAbilities" type="Node2D"]
+position = Vector2(-4, 0)
+
+[node name="PlayerAbilitiesList" type="PanelContainer" parent="."]
+offset_left = 59.0
+offset_top = -103.0
+offset_right = 219.0
+offset_bottom = -55.0
+scale = Vector2(0.7, 0.7)
+theme_override_styles/panel = SubResource("StyleBoxTexture_gaqho")
+
+[node name="Abilities" type="VBoxContainer" parent="PlayerAbilitiesList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerAbilitiesList/Abilities"]
+layout_mode = 2
+theme = ExtResource("2_lf7hm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+text = "Abilities"
+horizontal_alignment = 1
+
+[node name="AllIn" type="TextureButton" parent="PlayerAbilitiesList/Abilities"]
+layout_mode = 2
+theme = ExtResource("2_lf7hm")
+texture_normal = ExtResource("3_3amex")
+texture_pressed = ExtResource("4_umw8e")
+texture_hover = ExtResource("5_3420t")
+script = ExtResource("6_rdoox")
+AbilityName = "All In"
+Tooltip = "Charge in and attack with full power, taking an attack from the enemy but dealing 1.5x damage ."
+
+[node name="Label" type="Label" parent="PlayerAbilitiesList/Abilities/AllIn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -11.5
+offset_right = 52.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GuardedStrike" type="TextureButton" parent="PlayerAbilitiesList/Abilities"]
+layout_mode = 2
+theme = ExtResource("2_lf7hm")
+texture_normal = ExtResource("3_3amex")
+texture_pressed = ExtResource("4_umw8e")
+texture_hover = ExtResource("5_3420t")
+script = ExtResource("6_rdoox")
+AbilityName = "Guarded Strike"
+Tooltip = "Attack defensively. You gain +2 AC and +2 DR for this attack in exchange for -2 Damage on your attack."
+
+[node name="Label" type="Label" parent="PlayerAbilitiesList/Abilities/GuardedStrike"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -11.5
+offset_right = 52.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbilitiesClose" type="TextureButton" parent="."]
+offset_left = 161.0
+offset_top = -106.0
+offset_right = 177.0
+offset_bottom = -90.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("7_8qc6m")
+texture_pressed = ExtResource("8_b1pnu")
+texture_hover = ExtResource("9_gkmo7")
+
+[connection signal="mouse_entered" from="PlayerAbilitiesList/Abilities/AllIn" to="PlayerAbilitiesList/Abilities/AllIn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerAbilitiesList/Abilities/AllIn" to="PlayerAbilitiesList/Abilities/AllIn" method="_on_mouse_exited"]
+[connection signal="pressed" from="PlayerAbilitiesList/Abilities/AllIn" to="PlayerAbilitiesList/Abilities/AllIn" method="_on_pressed"]
+[connection signal="mouse_entered" from="PlayerAbilitiesList/Abilities/GuardedStrike" to="PlayerAbilitiesList/Abilities/GuardedStrike" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerAbilitiesList/Abilities/GuardedStrike" to="PlayerAbilitiesList/Abilities/GuardedStrike" method="_on_mouse_exited"]
+[connection signal="pressed" from="PlayerAbilitiesList/Abilities/GuardedStrike" to="PlayerAbilitiesList/Abilities/GuardedStrike" method="_on_pressed"]

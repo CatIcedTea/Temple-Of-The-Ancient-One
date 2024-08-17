@@ -1,0 +1,287 @@
+[gd_scene load_steps=23 format=3 uid="uid://cxs5hhw03ha07"]
+
+[ext_resource type="Script" path="res://script/enemy/possessedWater.cs" id="1_3n4js"]
+[ext_resource type="Shader" path="res://script/flashWhite.gdshader" id="2_sg2ip"]
+[ext_resource type="Texture2D" uid="uid://lioitjbgd3fi" path="res://art/enemy/possessedwater.png" id="3_lw1nf"]
+[ext_resource type="Theme" uid="uid://dn2mo1leextlr" path="res://theme/text.tres" id="4_kijqc"]
+[ext_resource type="Texture2D" uid="uid://ddhs77pwhasmg" path="res://art/ui/combatpanel.png" id="5_uiyhi"]
+[ext_resource type="Texture2D" uid="uid://c6ims6tywlo4w" path="res://art/ui/progressbar/enemyhpunder.png" id="6_i5wgg"]
+[ext_resource type="Texture2D" uid="uid://d040w8512dyus" path="res://art/ui/progressbar/enemyhpover.png" id="7_reg35"]
+[ext_resource type="Texture2D" uid="uid://ct80tqgxwmpm5" path="res://art/ui/progressbar/enemyhpprogress.png" id="8_25hto"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyjr5"]
+shader = ExtResource("2_sg2ip")
+shader_parameter/white = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwvrs"]
+atlas = ExtResource("3_lw1nf")
+region = Rect2(0, 0, 345, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41ilm"]
+atlas = ExtResource("3_lw1nf")
+region = Rect2(345, 0, 345, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rp30"]
+atlas = ExtResource("3_lw1nf")
+region = Rect2(690, 0, 345, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43rtv"]
+atlas = ExtResource("3_lw1nf")
+region = Rect2(1035, 0, 345, 204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8v572"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwvrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41ilm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rp30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43rtv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_yo02n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/white")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_elb3g"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/white")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.5]
+}
+
+[sub_resource type="Animation" id="Animation_y0hlk"]
+resource_name = "idle"
+length = 4.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6, 2.4, 3.2, 4),
+"transitions": PackedFloat32Array(0, 0, 0, 0, 0, 0),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(1, -16), Vector2(2, -16), Vector2(3, -16), Vector2(2, -16), Vector2(1, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/white")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nu782"]
+_data = {
+"RESET": SubResource("Animation_yo02n"),
+"dead": SubResource("Animation_elb3g"),
+"idle": SubResource("Animation_y0hlk")
+}
+
+[sub_resource type="Animation" id="Animation_oivso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/white")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cxqs5"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(0, 0, 0, 0, 0, 0),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(3, -16), Vector2(-3, -16), Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/white")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfoji"]
+_data = {
+"RESET": SubResource("Animation_oivso"),
+"hit": SubResource("Animation_cxqs5")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2vvhk"]
+texture = ExtResource("5_uiyhi")
+texture_margin_left = 15.0
+texture_margin_top = 11.0
+texture_margin_right = 15.0
+texture_margin_bottom = 11.0
+
+[node name="PossessedWater" type="Node2D"]
+script = ExtResource("1_3n4js")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_qyjr5")
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_8v572")
+autoplay = "default"
+frame_progress = 0.783464
+
+[node name="IdleAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nu782")
+}
+autoplay = "idle"
+
+[node name="HitAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dfoji")
+}
+
+[node name="EnemyPanel" type="PanelContainer" parent="."]
+offset_left = -171.0
+offset_top = -119.0
+offset_right = -19.0
+offset_bottom = -35.0
+theme = ExtResource("4_kijqc")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2vvhk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EnemyPanel"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="EnemyPanel/VBoxContainer"]
+layout_mode = 2
+text = "CULTIST"
+vertical_alignment = 2
+
+[node name="HP" type="TextureProgressBar" parent="EnemyPanel/VBoxContainer"]
+layout_mode = 2
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_i5wgg")
+texture_over = ExtResource("7_reg35")
+texture_progress = ExtResource("8_25hto")
+
+[node name="HPText" type="Label" parent="EnemyPanel/VBoxContainer/HP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoBox" type="HBoxContainer" parent="EnemyPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left" type="VBoxContainer" parent="EnemyPanel/VBoxContainer/InfoBox"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Damage" type="Label" parent="EnemyPanel/VBoxContainer/InfoBox/Left"]
+layout_mode = 2
+text = "DAMAGE: 2"
+
+[node name="AC" type="Label" parent="EnemyPanel/VBoxContainer/InfoBox/Left"]
+layout_mode = 2
+text = "AC: 1"
+
+[node name="Right" type="VBoxContainer" parent="EnemyPanel/VBoxContainer/InfoBox"]
+layout_mode = 2
+
+[node name="DR" type="Label" parent="EnemyPanel/VBoxContainer/InfoBox/Right"]
+layout_mode = 2
+text = "DR: 0"
+
+[node name="ToHit" type="Label" parent="EnemyPanel/VBoxContainer/InfoBox/Right"]
+layout_mode = 2
+text = "To Hit: +10"
